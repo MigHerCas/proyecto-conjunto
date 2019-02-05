@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `plataforma` (
-  `id_plataforma` varchar(3) NOT NULL,
+  `id_plataforma` int(1) NOT NULL,
   `nombre` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -77,7 +77,7 @@ CREATE TABLE `videojuego` (
   `ficha_tecnica` varchar(250) NOT NULL,
   `multijugador` tinyint(1) NOT NULL,
   `pegi` int(2) NOT NULL,
-  `id_plataforma` varchar(3) NOT NULL,
+  `id_plataforma` int(1) NOT NULL,
   `disponible` tinyint(1) NOT NULL,
   `valoracion` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -134,3 +134,8 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+--Inserts
+
+INSERT INTO `plataforma` (`id_plataforma`, `nombre`) VALUES (1, 'Nintendo'), (2, 'PS4'), (3, 'X-Box One');
