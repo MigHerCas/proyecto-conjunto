@@ -135,7 +135,7 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-
---Inserts
-
+--
+-- Inserts
+--
 INSERT INTO `plataforma` (`id_plataforma`, `nombre`) VALUES (1, 'Nintendo'), (2, 'PS4'), (3, 'X-Box One');
