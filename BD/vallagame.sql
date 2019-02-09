@@ -12,7 +12,6 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -22,13 +21,16 @@ SET time_zone = "+00:00";
 -- Base de datos: `vallagame`
 --
 
+CREATE DATABASE IF NOT EXISTS vallagame;
+USE vallagame;
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `plataforma`
 --
 
-CREATE TABLE `plataforma` (
+CREATE TABLE IF NOT EXISTS `plataforma` (
   `id_plataforma` int(1) NOT NULL,
   `nombre` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -39,7 +41,7 @@ CREATE TABLE `plataforma` (
 -- Estructura de tabla para la tabla `prestamo`
 --
 
-CREATE TABLE `prestamo` (
+CREATE TABLE IF NOT EXISTS `prestamo` (
   `id_prestamo` int(4) NOT NULL,
   `id_usuario` int(3) NOT NULL,
   `id_videojuego` varchar(3) NOT NULL,
@@ -53,7 +55,7 @@ CREATE TABLE `prestamo` (
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int(3) NOT NULL,
   `nombre` varchar(25) NOT NULL,
   `apellidos` varchar(40) NOT NULL,
