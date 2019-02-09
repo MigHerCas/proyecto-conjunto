@@ -1,5 +1,7 @@
 <?php
-    require_once "./dist/init.php";
+    
+    include_once dirname(__FILE__) . '/./dist/init.php';
+
 
 ?>
 
