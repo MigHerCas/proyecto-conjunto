@@ -13,6 +13,7 @@
             if ($conexion->connect_errno) {
                 return false;
             }
+            
             return $conexion;
         }
 
