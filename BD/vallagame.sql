@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-02-2019 a las 11:21:32
+-- Tiempo de generación: 17-02-2019 a las 12:21:02
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.10
 
@@ -131,14 +131,14 @@ ALTER TABLE `plataforma`
 --
 ALTER TABLE `prestamo`
   ADD PRIMARY KEY (`id_prestamo`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_videojuego` (`id_videojuego`);
+  ADD KEY `id_videojuego` (`id_videojuego`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id_usuario`);
+  ADD PRIMARY KEY (`id_usuario`,`email`);
 
 --
 -- Indices de la tabla `videojuego`
@@ -146,6 +146,16 @@ ALTER TABLE `usuario`
 ALTER TABLE `videojuego`
   ADD PRIMARY KEY (`id_videojuego`),
   ADD KEY `id_plataforma` (`id_plataforma`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
