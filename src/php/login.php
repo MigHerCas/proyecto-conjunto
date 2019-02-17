@@ -1,6 +1,9 @@
 <?php
-include('./clases/Database.php');
+
+    include('./clases/Database.php');
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

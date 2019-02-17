@@ -1,6 +1,6 @@
 <?php
     
-    require_once dirname(__FILE__) . '/./dist/init.php';
+    require_once './dist/init.php';
 
 ?>
 
