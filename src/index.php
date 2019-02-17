@@ -2,7 +2,6 @@
     
     require_once dirname(__FILE__) . '/./dist/init.php';
 
-
 ?>
 
 <!DOCTYPE html>
