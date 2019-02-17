@@ -1,0 +1,31 @@
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: 
+        "titulo titulo usuario"
+        "operaciones main main";
+}
+
+div.titulo {
+    grid-area: titulo;
+    background-color: coral;
+}
+
+aside.usuario {
+    grid-area: usuario;
+    background-color: aqua;
+}
+
+aside.operaciones { 
+    grid-area: operaciones;
+    background-color: blueviolet;
+}
+
+main {
+    grid-area: main;
+    background-color: darkslateblue;
+}

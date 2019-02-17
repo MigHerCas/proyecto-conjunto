@@ -1,3 +1,4 @@
 
 /* Aquí importamos los módulos css */
 @import "./modulos/_index.css";
+@import "./modulos/_normalize.css";

@@ -20,5 +20,6 @@
 </head>
 <body>
     <h2>Prueba</h2>
+    <a href="./php/listado.php">Listado</a>
 </body>
 </html>
