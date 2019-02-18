@@ -27,13 +27,17 @@
 }
 
 .item {
-    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: 
+        "caratula juego juego juego"
+        "caratula descripcion descripcion1 botones";
     min-height: 12em;
     max-height: 12em;
-    display: flex;
-    flex-direction: row;
     background-color: #ebebeb;
-    border-radius: 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     align-items: center;
 }
 
@@ -42,36 +46,41 @@
 }
 
 .item-img-container {
-    height: 9em;
-    flex: 1 0 auto;
+    height: 10em;
+    grid-area: caratula;
 }
 
 .item-img-container img {
-    width: 7em;
+    width: 7.5em;
     height: 10em;
     margin-right: 10px;
     margin-left: 2em;
 }   
 
 .item-description {
-    flex: 10 0 auto;
+    grid-area: descripcion;
+}
+.item-description1 {
+    grid-area: descripcion1;
+}
+.item-botones {
+    grid-area: botones;
+}
+.item-titulo{
+    grid-area: juego;
 }
 
-.item-description h3 {
+
+.item-titulo h3 {
     margin-bottom: 0;
-
 }
 
-.item-description h3 label {
+.item-titulo h3 label {
     margin-left: 3em;
 }
 
 .item-description p {
     margin-top: 10px;
-}
-
-.valoracion {
-    flex: 1 0 auto;
 }
 </style>
 <body>
@@ -95,12 +104,20 @@
                     <div class="item-img-container">
                         <?php print "<img src='../assets/".$array[1]."' alt='Imagen Videojuego' />"; ?>
                     </div>
+                    <div class="item-titulo">
+                        <h3><?= $array[0]?></h3>
+                    </div>
                     <div class="item-description">
-                        <h3><?= $array[0]?> <label>Valoración: <?= $array[3] ?></label></h3>
                         <p></span>Género: <span><?= $array[2] ?></p>
                         <p></span>Pegi <span><?= $array[4] ?></p>
+                    </div>
+                    <div class="item-description1">
                         <p></span>Max Jugadores: <span><?= $array[5] ?></p>
                         <p></span>Plataforma: <span><?= $array[6] ?></p>
+                    </div>
+                    <div class="item-botones">
+                        <h3><label>Valoración: <?= $array[3] ?></label></h3>
+                        <p><button>Ver Juego</button></p>
                     </div>
                 </li>    
             <?php } ?>
