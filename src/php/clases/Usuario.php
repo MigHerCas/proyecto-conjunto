@@ -5,7 +5,7 @@
         public static function registrar( $conexion, $campos ) {
             
             // Cogemos la contraseña para hacer el md5
-            $campos['password'] = md5( $campos['password'] );
+            // $campos['password'] = md5( $campos['password'] );
 
             // SQL para registrar el usuario en la BD
             $instruccion = 'INSERT INTO usuario 
@@ -28,37 +28,71 @@
             return false;
         }
 
-        public static function comprobarUsuario( $conexion, $campos ) {
+        public static function comprobarUsuario( $conexion, $tipo, $campos ) {
 
             // Comprobamos si hay un usuario registrado con el DNI
-            $campos['contrasena'] = md5( $campos['contrasena'] );
+            // $campos['password'] = md5( $campos['password'] );
 
-            $consulta = 'SELECT nif, telefono, email
-                         FROM practica5.usuarios 
-                         WHERE nif = ? AND contrasena = ?';
+            // Comprobacion para registro
+            if ( $tipo === 1 ) {
+                $consulta = 'SELECT * 
+                            FROM usuario 
+                            WHERE email = ?';
            
 
-            // Preparamos la consulta
-            $statement = $conexion->prepare( $consulta );
+                // Preparamos la consulta
+                $statement = $conexion->prepare( $consulta );
 
-            // Pasamos los parámetros
-            $statement->bind_param('ss', $campos['nif'], $campos['contrasena']);
+                // Pasamos los parámetros
+                $statement->bind_param('s', $campos['email'] );
 
-            // Ejecutamos la consulta SQL
-            if ( $statement->execute() ) {
+                // Ejecutamos la consulta SQL
+                if ( $statement->execute() ) {
+                    
+                    // Filas devueltas
+                    $resultado = $statement->get_result()->fetch_assoc();
+                    
+                    // Comprobamos si hay algún usuario que coincida
+                    if ($resultado) {
+                        return $resultado;
+                    }
+
+                } 
+
+                // Si no hay ningún usuario registrado con ese NIF
+                return null;
+
+            } else if ( $tipo === 2 ) {
+                // Comprobacion para login
+                $consulta = 'SELECT *
+                            FROM usuario
+                            WHERE email = ? 
+                            AND password = ?';
+           
+
+                // Preparamos la consulta
+                $statement = $conexion->prepare( $consulta );
                 
-                // Filas devueltas
-                $resultado = $statement->get_result()->fetch_assoc();
-                
-                // Comprobamos si hay algún usuario que coincida
-                if ($resultado) {
-                    return $resultado;
-                }
+                // Pasamos los parámetros
+                $statement->bind_param('ss', $campos['email'], $campos['password']);
 
-            } 
+                // Ejecutamos la consulta SQL
+                if ( $statement->execute() ) {
+                    
+                    // Filas devueltas
+                    $resultado = $statement->get_result()->fetch_assoc();
+                    
+                    // Comprobamos si hay algún usuario que coincida
+                    if ($resultado) {
+                        return $resultado;
+                    }
 
-            // Si no hay ningún usuario registrado con ese NIF
-            return null;
+                } 
+
+                // Si no hay ningún usuario registrado con ese NIF
+                return null;
+            }
+            
         }
 
     }

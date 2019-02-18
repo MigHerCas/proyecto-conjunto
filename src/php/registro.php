@@ -14,18 +14,25 @@
     // Si se envía el formulario
     if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $validacion = validarFormulario( $_POST );
-        echo var_dump( $validacion);
-        echo var_dump( $_POST);
         
         // Si la validación es correcta, no hay ningún mensaje de error en el array
         if ( empty( $validacion ) ) {
 
-            // Registramos el usuario con el método estático de la clase Usuario
-            if ( Usuario::registrar( $conexion, $_POST) ) {
-                // Si todo va bien, avanzamos a la página main.php
-                // header("Location: listado.php");
+            // Comprobamos si hay algún usuario registrado con ese email
+            if ( Usuario::comprobarUsuario( $conexion, 1, $_POST ) !== null ) {
+                // Si ya hay algún usuario registrado con ese email
+                $repetido = true;
+
             } else {
-                $error_registro = "Error en el registro. El usuario puede estar ya registrado.";
+                // Si no hay algún usuario registrado con ese email
+
+                // Registramos el usuario con el método estático de la clase Usuario
+                if ( Usuario::registrar( $conexion, $_POST) ) {
+                    // Si todo va bien, avanzamos a la página main.php
+                    // header("Location: listado.php");
+                } else {
+                    $error_registro = "Error en el registro. El usuario puede estar ya registrado.";
+                }
             }
 
         } else {
@@ -73,6 +80,22 @@
         <p>
             <button>Registrarse</button>
         </p>
+
+        <ul class="errores-formulario">      
+            <?php if ( isset( $validacion ) ): ?>
+                <?php foreach ($validacion as $error): ?>
+                    <li><?= $error ?></li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+            <?php if ( isset( $error_registro ) ): ?>
+                <li><?= $error_registro ?></li>
+            <?php endif; ?>
+
+            <?php if ( isset( $repetido ) ): ?>
+                <li>Ya hay un usuario registrado con ese email</li>
+            <?php endif; ?>
+        </ul>
     </form>
 </body>
 </html>

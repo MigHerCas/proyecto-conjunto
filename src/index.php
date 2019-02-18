@@ -15,5 +15,7 @@
 <body>
     <h2>Prueba</h2>
     <a href="./php/listado.php">Listado</a>
+    <a href="./php/registro.php">Registro</a>
+    <a href="./php/login.php">Login</a>
 </body>
 </html>
