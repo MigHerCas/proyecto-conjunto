@@ -23,10 +23,19 @@
             display:inline-block;
             width:7em;
         }
+        .titulo>img{
+            width:12%;
+            float:left;
+        }
+        a{
+            text-decoration:none;
+            color:black;
+            font-size:150%;
+        }
     </style>
 </head>
 <body>
-    <div class="titulo"></div>
+    <div class="titulo"> <img src="../imgs/logo.png" alt="logo"/><h1>Vallagame</h1></div>
     <aside class="usuario">
         <h1 class="perfil">Perfil 
             <a href="./perfil.php">
@@ -35,7 +44,10 @@
         </h1>
     </aside>
     <aside class="operaciones">
-    
+        <ul>
+            <li><a href="./listado.php">Inicio</a></li>
+            <li> <a href="./cerrarSesion.php">Cerrar sesión</a></li>
+        </ul>
     </aside>
     <main class="wrapper">
     <h1>Perfil</h1>
