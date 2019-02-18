@@ -1,12 +1,6 @@
 
 .wrapper {
-
-    margin-right: auto; 
-    margin-left:  auto; 
-
     max-width: 100%; 
-
-    padding-right: 2em; 
-    padding-left:  2em;
-
+    padding-right: 4em; 
+    padding-left:  4em;
 }

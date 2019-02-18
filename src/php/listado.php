@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Listado</title>
     <link rel="stylesheet" href="../styles/main.css" />
-    <link rel="stylesheet" href="../styles/listado.css" />
+    <link rel="stylesheet" href="../styles/layout.css" />
 </head>
 <body>
     <div class="titulo"></div>
@@ -16,7 +16,7 @@
     <aside class="operaciones">
     
     </aside>
-    <main class="wrap">
+    <main class="wrapper">
     
     </main>
 </body>
