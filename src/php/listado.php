@@ -16,7 +16,7 @@
     <aside class="operaciones">
     
     </aside>
-    <main>
+    <main class="wrap">
     
     </main>
 </body>
