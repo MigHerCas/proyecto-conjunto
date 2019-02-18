@@ -102,7 +102,7 @@
                 ?>
                 <li class="item">
                     <div class="item-img-container">
-                        <?php print "<img src='../assets/".$array[1]."' alt='Imagen Videojuego' />"; ?>
+                        <img src="<?= '../assets/' . $array[1] ?>" alt="Imagen videojuego" />
                     </div>
                     <div class="item-titulo">
                         <h3><?= $array[0]?></h3>
