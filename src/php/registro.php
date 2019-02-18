@@ -71,9 +71,7 @@
                 <input type="number" name="edad" id="edad" placeholder="Edad" value="<?= $edad?>"/>
 
                 <input type="password" name="password"  placeholder="Contraseña" />
-
-                <!-- <input type="password" name="password2"  placeholder="Repita contraseña" />  -->
-                <button>Enviar</button>
+                <button class="animado">Enviar</button>
             </div>
             
             

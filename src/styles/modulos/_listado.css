@@ -1,4 +1,32 @@
 
+
+aside.operaciones {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.cabecera {
+    flex: 1;
+    text-align: center;
+}
+
+.cabecera > img {
+    width: 60%;
+    max-width: 5em;
+}
+
+.cabecera > h2 {
+    margin: 0;
+}
+
+.filtrado {
+    flex: 2;
+}
+
+.control {
+    flex: 1;
+}
+
 .listado {
     overflow: auto;
     list-style: none;

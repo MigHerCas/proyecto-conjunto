@@ -59,7 +59,7 @@
                     <input type="text" name="email" placeholder="Email" value="<?= $email?>" />
 
                     <input type="password" name="password"  placeholder="Contraseña" />
-                    <button id="inicio">Iniciar sesión</button>
+                    <button class="animado" id="inicio">Iniciar sesión</button>
                 </div>
                 
                 
