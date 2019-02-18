@@ -2,3 +2,4 @@
 /* Aquí importamos los módulos css */
 @import "./modulos/_normalize.css";
 @import "./modulos/_wrapper.css";
+@import "./modulos/_fonts.css";

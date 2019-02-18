@@ -46,19 +46,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Login</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/formularios.css" />
 </head>
 <body>
-    <form action="" method="POST">
-        <p>
-            <input type="text" name="email" placeholder="Email" value="<?= $email?>" />
-        </p>
-        <p>
-            <input type="password" name="password" placeholder="Contraseña" />
-        </p>
-        <p>
-            <button>Enviar</button>
-        </p> 
-    </form>
+    <main>
+        <h1>Vallagame</h1>
+        <form method="POST" id="login">
+            <h2>Login</h2>
+                <div class="inputs-container">
+                    
+                    <input type="text" name="email" placeholder="Email" value="<?= $email?>" />
+
+                    <input type="password" name="password"  placeholder="Contraseña" />
+                    <button id="inicio">Iniciar sesión</button>
+                </div>
+                
+                
+                <ul class="errores-formulario">      
+                    <?php if ( isset( $validacion ) ): ?>
+                        <?php foreach ($validacion as $error): ?>
+                            <li><?= $error ?></li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+
+                    <?php if ( isset( $error_registro ) ): ?>
+                        <li><?= $error_registro ?></li>
+                    <?php endif; ?>
+
+                    <?php if ( isset( $repetido ) ): ?>
+                        <li>Ya hay un usuario registrado con ese email</li>
+                    <?php endif; ?>
+                </ul>
+        </form>
+    </main>
+   
 </body>
 </html>
 

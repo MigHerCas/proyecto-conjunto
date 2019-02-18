@@ -9,7 +9,6 @@
     $email = "";
     $telefono = "";
     $edad = "";
-    $direccion = "";
 
     // Si se envía el formulario
     if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -42,7 +41,6 @@
             $email = $_POST['email'];
             $telefono = $_POST['telefono'];
             $edad = $_POST['edad'];
-            $direccion = $_POST['direccion'];
         }
     }
 ?>
@@ -54,49 +52,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Registro</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/formularios.css" />
 </head>
 <body>
-    <form action="#" method="POST">
-        <p>
-            <input type="text" name="nombre" placeholder="Nombre" value="<?= $nombre?>" />
-        </p>
-        <p>
-            <input type="text" name="apellidos" placeholder="Apellidos" value="<?= $apellidos?>" />
-        </p>
-        <p>
-            <input type="email" name="email" placeholder="Email" value="<?= $email?>" />
-        </p>
-        <p>
-            <input type="number" name="telefono"  placeholder="Telefono" value="<?= $telefono?>"/>
-        <p>
-            <input type="number" name="edad" id="edad" placeholder="Edad" value="<?= $edad?>"/>
-        <p>
-            <input type="text" name="direccion"  placeholder="Dirección" value="<?= $direccion?>" />
-        <p>
-            <input type="password" name="password"  placeholder="Contraseña" />
-        <!-- <p>
-            <input type="password" name="password2"  placeholder="Repita contraseña" />
-        <p> -->
-        <p>
-            <button>Registrarse</button>
-        </p>
+    <main>
+        <h1>Vallagame</h1>
+        <form action="#" method="POST">
+            <h2>Registro</h2>
+            <div class="inputs-container">
+                <input type="text" name="nombre" placeholder="Nombre" value="<?= $nombre?>" />
+            
+                <input type="text" name="apellidos" placeholder="Apellidos" value="<?= $apellidos?>" />
+                
+                <input type="text" name="email" placeholder="Email" value="<?= $email?>" />
+                
+                <input type="number" name="telefono"  placeholder="Telefono" value="<?= $telefono?>"/>
+                <input type="number" name="edad" id="edad" placeholder="Edad" value="<?= $edad?>"/>
 
-        <ul class="errores-formulario">      
-            <?php if ( isset( $validacion ) ): ?>
-                <?php foreach ($validacion as $error): ?>
-                    <li><?= $error ?></li>
-                <?php endforeach; ?>
-            <?php endif; ?>
+                <input type="password" name="password"  placeholder="Contraseña" />
 
-            <?php if ( isset( $error_registro ) ): ?>
-                <li><?= $error_registro ?></li>
-            <?php endif; ?>
+                <!-- <input type="password" name="password2"  placeholder="Repita contraseña" />  -->
+                <button>Enviar</button>
+            </div>
+            
+            
+            <ul class="errores-formulario">      
+                <?php if ( isset( $validacion ) ): ?>
+                    <?php foreach ($validacion as $error): ?>
+                        <li><?= $error ?></li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
 
-            <?php if ( isset( $repetido ) ): ?>
-                <li>Ya hay un usuario registrado con ese email</li>
-            <?php endif; ?>
-        </ul>
-    </form>
+                <?php if ( isset( $error_registro ) ): ?>
+                    <li><?= $error_registro ?></li>
+                <?php endif; ?>
+
+                <?php if ( isset( $repetido ) ): ?>
+                    <li>Ya hay un usuario registrado con ese email</li>
+                <?php endif; ?>
+            </ul>
+        </form>
+    </main>    
 </body>
 </html>
 
@@ -109,7 +106,6 @@
         $estadoContraseña;
         $estadoEmail;
         $estadoTelefono;
-        $estadoDireccion;
         $estadoEdad;
 
         $errores = array();
@@ -142,13 +138,6 @@
 
         if ( $estadoTelefono !== null ) {
             array_push( $errores, $estadoTelefono );
-        }
-
-        // Direccion
-        $estadoDireccion = validarDireccion( $campos['direccion'] );
-
-        if ( $estadoDireccion !== null ) {
-            array_push( $errores, $estadoDireccion );
         }
 
         // Edad
