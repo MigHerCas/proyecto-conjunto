@@ -9,14 +9,14 @@
 
             // SQL para registrar el usuario en la BD
             $instruccion = 'INSERT INTO usuario 
-                    (nombre, apellidos, email, telefono, edad, direccion, password)
-                    VALUES (?, ?, ?, ?, ?, ?, ?)';
+                    (nombre, apellidos, email, telefono, edad, password)
+                    VALUES (?, ?, ?, ?, ?, ?)';
 
             // La preparamos 
             $statement = $conexion->prepare($instruccion);
 
             // Pasamos los parámetros
-            $statement->bind_param('sssiiss', $campos['nombre'], $campos['apellidos'], $campos['email'], $campos['telefono'], $campos['edad'], $campos['direccion'], $campos['password']);
+            $statement->bind_param('sssiis', $campos['nombre'], $campos['apellidos'], $campos['email'], $campos['telefono'], $campos['edad'], $campos['password']);
 
             // Ejecutamos la instrucción SQL ya completa
             if ( $statement->execute() ) {
