@@ -1,4 +1,6 @@
 
+@import "./modulos/_btn.css";
+
 /* Styles */
 body {
     height: 100vh;
@@ -41,6 +43,10 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    text-align: center;
+}
+
 /* Formulario */
 form {
     width: 60%;
@@ -78,33 +84,6 @@ form > h2, .inputs-container > button {
 
 input:focus {
     border-left: 10px solid #ffa500;
-}
-
-button {
-    background-color: #ffa500;
-    font-size: 1.2rem;
-    font-family: 'Lobster';
-    font-weight: 700;
-    color: #2c2c2c;
-    border: 0;
-    outline: none;
-    transition: all .1s;
-    cursor: pointer;
-}
-
-button#inicio {
-    grid-column: span 1;
-}
-
-button:active {
-    transform: scale(.98);
-}
-
-button.animado:hover {
-    transform: scale(1.02);
-    background-color: #006aff;
-    color: #fff;
-    text-shadow: 3px 2px 2px #000;
 }
 
 /* Errores */

@@ -55,7 +55,7 @@
         <form method="POST" id="login">
             <h2>Login</h2>
                 <div class="inputs-container">
-                    
+                    <h3>Introduzca su email y contraseña</h3>
                     <input type="text" name="email" placeholder="Email" value="<?= $email?>" />
 
                     <input type="password" name="password"  placeholder="Contraseña" />
