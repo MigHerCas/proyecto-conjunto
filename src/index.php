@@ -1,9 +1,3 @@
-<?php
-    
-    require_once './dist/init.php';
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
