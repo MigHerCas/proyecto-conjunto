@@ -102,6 +102,72 @@
             return null;
         }
 
+        public static function alquilar( $conexion, $id_usuario, $id_videojuego ) {
+
+            // Fechas
+            $actual = date('Y-m-d');
+            $final = date('Y-m-d', strtotime($actual. ' + 10 days'));
+
+            // Insertamos el prestamo
+            $instruccion = "INSERT INTO prestamo (id_usuario, id_videojuego, fecha_inicio, fecha_fin)
+                VALUES (?, ?, ?, ?)";
+
+            $statement = $conexion->prepare( $instruccion );
+            
+            $statement->bind_param( 'isss', intval($id_usuario), $id_videojuego, $actual, $final);
+
+            if ( $statement->execute() ) {
+                return true;
+            }
+            return false;
+        }
+
+        public static function actualizar( $conexion, $estado, $id_videojuego) {
+
+            // Modificamos el estado del videojuego
+            $instruccion = "UPDATE videojuego
+                            SET disponible = ?
+                            WHERE id_videojuego = ?";
+
+            $statement = $conexion->prepare( $instruccion );
+            
+            $statement->bind_param( 'is', $estado, $id_videojuego );
+
+            if ( $statement->execute() ) {
+                return true;
+            }
+            return false;
+        }
+
+        public static function comprobarEstado($conexion, $id_videojuego) {
+
+            // Obtenemos los videojuegos registrados
+            $consulta =  "SELECT disponible
+                FROM videojuego
+                WHERE id_videojuego = ?";
+
+            // Preparamos la consulta
+            $statement = $conexion->prepare( $consulta );
+
+            // Pasamos los parámetros
+            $statement->bind_param( 's', $id_videojuego );
+
+            // Ejecutamos la consulta SQL
+            if ( $statement->execute() ) {
+                
+                // Filas devueltas
+                $resultado = $statement->get_result()->fetch_assoc();
+                
+                // Comprobamos si hay algún usuario que coincida
+                if ( $resultado !== null ) {
+                    return $resultado;
+                } 
+
+            } 
+
+            return null;
+        } 
+
     }
 
 ?>

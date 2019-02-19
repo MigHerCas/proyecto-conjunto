@@ -96,7 +96,7 @@
         </div>
         <div class="control">
             <a href="listado.php">INICIO</a>
-            <a href="">CERRAR SESIÓN</a>
+            <a href="cerrarSesion.php">CERRAR SESIÓN</a>
         </div>
     </aside>
     <main>
@@ -115,7 +115,20 @@
                                     PEGI <?= $videojuego['pegi'] ?>
                                 </li>
                                 <li id="plataforma">
-                                    <?= $videojuego['id_plataforma'] ?>
+                                    <?php
+                                    $nombre;
+                                    switch ( $videojuego['id_plataforma'] ) {
+                                        case 1:
+                                            $nombre = 'NINTENDO';
+                                            break;
+                                        case 2:
+                                            $nombre = 'PS4';
+                                            break;
+                                        case 3:
+                                            $nombre = 'XBOX ONE';
+                                            break;
+                                    } ?>
+                                    <?= $nombre ?>
                                 </li>
                             </ul>
                             <form action="juego.php" method="GET">

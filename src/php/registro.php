@@ -90,6 +90,8 @@
                     <li>Ya hay un usuario registrado con ese email</li>
                 <?php endif; ?>
             </ul>
+            <a id="login" href="login.php">Volver</a>
+
         </form>
     </main>    
 </body>

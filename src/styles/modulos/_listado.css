@@ -63,10 +63,6 @@
 
 .img-container {
     flex: 1 0 0;
-    /* background-image: url('../../assets/imgs/videojuegos/N01.jpg');
-    background-position: top center;
-    background-size: cover;
-    background-repeat: no-repeat; */
     border-bottom: 5px solid #ffa500;
     position: relative;
 }

@@ -88,6 +88,36 @@ input:focus {
     border-left: 10px solid #ffa500;
 }
 
+a#registrarse, a#login {
+    display: block;
+    text-align: center;
+    background-color: #2c2c2c;
+    font-size: 1.2rem;
+    font-family: 'Lobster';
+    font-weight: 700;
+    color: #ffffff;
+    border: 0;
+    outline: none;
+    transition: all .1s;
+    cursor: pointer;
+    padding: .5em 0;
+}
+
+a#registrarse {
+    border-radius: 5px;
+}
+a#login {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+a#registrarse:hover {
+    transform: scale(1.02);
+    background-color: #006aff;
+    color: #fff;
+    text-shadow: 3px 2px 2px #000;
+}
+
 /* Errores */
 ul.errores-formulario {
     width: 70%;

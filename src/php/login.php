@@ -25,6 +25,7 @@
                 // Guardamos los datos e iniciamos sesión
                 $_SESSION['sesion_iniciada'] = true;
                 $_SESSION['email'] = $comprobacion['email'];
+                $_SESSION['id_usuario'] = $comprobacion['id_usuario'];
                 
                 header("Location: listado.php");
             } else {
@@ -60,8 +61,8 @@
 
                     <input type="password" name="password"  placeholder="Contraseña" />
                     <button class="animado" id="inicio">Iniciar sesión</button>
+                    <a id="registrarse" href="registro.php">Registrarse</a>
                 </div>
-                
                 
                 <ul class="errores-formulario">      
                     <?php if ( isset( $validacion ) ): ?>
