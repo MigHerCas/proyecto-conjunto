@@ -2,6 +2,24 @@
 
     require_once '../dist/init.php';
 
+    if (isset($_SESSION['sesion_iniciada']) && $_SESSION['sesion_iniciada'] == true) {  
+
+        if ($_SERVER['REQUEST_METHOD'] === "GET") {
+
+            if ( isset( $_GET['cod'] ) ) {
+                $codigo = $_GET['cod'];
+                // Cargamos el videojuego seleccionado
+                $info = Videojuego::cargarInfoVideojuego( $conexion, $codigo );
+            } else {
+                header("Location: login.php");
+            }
+
+        }
+
+    } else {
+        header("Location: login.php");
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,31 +54,31 @@
                 <h1>Ficha técnica</h1>
                 <div id="nombre">
                     <h3>Nombre</h3>
-                    <p>Lorem</p>
+                    <p><?= $info[0]['titulo']?></p>
                 </div>
                 <div id="valoracion">
                     <h3>Valoracion</h3>
-                    <p>Lorem</p>
+                    <p><?= $info[0]['valoracion']?></p>
                 </div>
                 <div id="genero">
                     <h3>Género</h3>
-                    <p>Lorem</p>
+                    <p><?= $info[0]['genero']?></p>
                 </div>
                 <div id="pegi">
                     <h3>Edad</h3>
-                    <p>Lorem</p>
+                    <p><?= $info[0]['pegi']?></p>
                 </div>
                 <div id="multi">
                     <h3>Multijugador</h3>
-                    <p>Lorem</p>
+                    <p><?= $info[0]['multijugador']?></p>
                 </div>
                 <div id="plataforma">
                     <h3>Plataforma</h3>
-                    <p>Lorem</p>
+                    <p><?= $info[0]['id_plataforma']?></p>
                 </div>
                 <div id="descr">
                     <h3>Descripcion</h3>
-                    <p>Lorem</p>
+                    <p><?= $info[0]['ficha_tecnica']?></p>
                 </div>
             </div>
             <div class="alquilar">

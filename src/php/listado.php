@@ -2,6 +2,14 @@
 
     require_once '../dist/init.php';
 
+    if (isset($_SESSION['sesion_iniciada']) && $_SESSION['sesion_iniciada'] == true) {
+
+        // Cargamos los videojuegos
+        $videojuegos = Videojuego::cargarVideojuegos( $conexion );
+
+    } else {
+        header("Location: login.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -65,141 +73,29 @@
     </aside>
     <main>
         <ul class="listado">
-            <li class="item">
-                <div class="img-container"></div>
-                <div class="descripcion">
-                    <h3>Nombre juego</h3>
-                    <ul class="info-juego">
-                        <li id="edad">
-                            PEGI 7
-                        </li>
-                        <li id="plataforma">
-                            PS4
-                        </li>
-                    </ul>
-                    <button class="animado">Ficha</button>
-                </div>
-            </li>
-            <li class="item">
-                <div class="img-container"></div>
-                <div class="descripcion">
-                    <h3>Nombre juego</h3>
-                    <ul class="info-juego">
-                        <li id="edad">
-                            PEGI 7
-                        </li>
-                        <li id="plataforma">
-                            PS4
-                        </li>
-                    </ul>
-                    <button class="animado">Ficha</button>
-                </div>
-            </li>
-            <li class="item">
-                <div class="img-container"></div>
-                <div class="descripcion">
-                    <h3>Nombre juego</h3>
-                    <ul class="info-juego">
-                        <li id="edad">
-                            PEGI 7
-                        </li>
-                        <li id="plataforma">
-                            PS4
-                        </li>
-                    </ul>
-                    <button class="animado">Ficha</button>
-                </div>
-            </li>
-            <li class="item">
-                <div class="img-container"></div>
-                <div class="descripcion">
-                    <h3>Nombre juego</h3>
-                    <ul class="info-juego">
-                        <li id="edad">
-                            PEGI 7
-                        </li>
-                        <li id="plataforma">
-                            PS4
-                        </li>
-                    </ul>
-                    <button class="animado">Ficha</button>
-                </div>
-            </li>
-            <li class="item">
-                <div class="img-container"></div>
-                <div class="descripcion">
-                    <h3>Nombre juego</h3>
-                    <ul class="info-juego">
-                        <li id="edad">
-                            PEGI 7
-                        </li>
-                        <li id="plataforma">
-                            PS4
-                        </li>
-                    </ul>
-                    <button class="animado">Ficha</button>
-                </div>
-            </li>
-            <li class="item">
-                <div class="img-container"></div>
-                <div class="descripcion">
-                    <h3>Nombre juego</h3>
-                    <ul class="info-juego">
-                        <li id="edad">
-                            PEGI 7
-                        </li>
-                        <li id="plataforma">
-                            PS4
-                        </li>
-                    </ul>
-                    <button class="animado">Ficha</button>
-                </div>
-            </li>
-            <li class="item">
-                <div class="img-container"></div>
-                <div class="descripcion">
-                    <h3>Nombre juego</h3>
-                    <ul class="info-juego">
-                        <li id="edad">
-                            PEGI 7
-                        </li>
-                        <li id="plataforma">
-                            PS4
-                        </li>
-                    </ul>
-                    <button class="animado">Ficha</button>
-                </div>
-            </li>
-            <li class="item">
-                <div class="img-container"></div>
-                <div class="descripcion">
-                    <h3>Nombre juego</h3>
-                    <ul class="info-juego">
-                        <li id="edad">
-                            PEGI 7
-                        </li>
-                        <li id="plataforma">
-                            PS4
-                        </li>
-                    </ul>
-                    <button class="animado">Ficha</button>
-                </div>
-            </li>
-            <li class="item">
-                <div class="img-container"></div>
-                <div class="descripcion">
-                    <h3>Nombre juego</h3>
-                    <ul class="info-juego">
-                        <li id="edad">
-                            PEGI 7
-                        </li>
-                        <li id="plataforma">
-                            PS4
-                        </li>
-                    </ul>
-                    <button class="animado">Ficha</button>
-                </div>
-            </li>
+            <?php foreach( $videojuegos as $videojuego ): ?>
+                <li class="item">
+                    <div class="img-container">
+                        <img src="../assets/<?= $videojuego['id_img'] ?>" alt="Imagen caratula" />
+                    </div>
+                    <div class="descripcion">
+                        <h3><?= $videojuego['titulo'] ?></h3>
+                        <ul class="info-juego">
+                            <li id="edad">
+                                PEGI <?= $videojuego['pegi'] ?>
+                            </li>
+                            <li id="plataforma">
+                                <?= $videojuego['id_plataforma'] ?>
+                            </li>
+                        </ul>
+                        <form action="juego.php" method="GET">
+                            <input type="text" name="cod" hidden="true" value="<?= $videojuego['id_videojuego'] ?>" />
+                            <button class="animado">Ficha</button>
+                        </form>
+                    </div>
+                </li>        
+            <?php endforeach; ?>
+
         </ul>
     </main>
 </body>
