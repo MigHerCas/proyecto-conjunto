@@ -22,8 +22,60 @@ aside.operaciones {
     grid-area: operaciones;
     background-color: #f7f7f7;
     border-left: .8em solid #ffa500;
+    display: flex;
+    flex-flow: column nowrap;
+    box-shadow: 3px -2px 31px 8px rgba(0,0,0,0.4);
 }
 
+.cabecera {
+    flex: 0;
+    text-align: center;
+    padding: 1em;
+    border-bottom: 3px dashed #000;
+}
+
+.cabecera > img {
+    width: 60%;
+    max-width: 5em;
+}
+
+.cabecera > h2 {
+    margin: 0;
+    font-family: Lobster;
+}
+
+.control {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.control-2 {
+    flex: 0;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.vacio {
+    flex: 3;
+}
+
+.control > a {
+    flex: 1;
+    padding: 1em 0;
+    background-color: #ffa500;
+    font-family: Lobster;
+    text-align: center;
+    background-color: rgb(87, 87, 87);
+    font-size: 1.1rem;
+    color: #fff;
+    text-shadow: 3px 2px 2px #002F35;
+    transition: all .2s ease-out;
+}
+
+.control > a:hover {
+    background-color: #005c68;   
+}
 
 main {
     grid-area: main;

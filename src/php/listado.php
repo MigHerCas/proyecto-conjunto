@@ -58,7 +58,10 @@
                 </div>
             </form>
         </div>
-        <div class="control"></div>
+        <div class="control">
+            <a href="listado.php">INICIO</a>
+            <a href="">CERRAR SESIÓN</a>
+        </div>
     </aside>
     <main>
         <ul class="listado">
