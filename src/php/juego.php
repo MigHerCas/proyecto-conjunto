@@ -29,7 +29,7 @@
     <main>
         <div class="ficha">
             <div class="caratula">
-                <img src="../assets/imgs/N01.jpg" alt="Caratula juego" />
+                <img src="../assets/imgs/videojuegos/N01.jpg" alt="Caratula juego" />
             </div>
 
             <div class="tecnica">
