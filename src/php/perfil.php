@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="David Fernandez" />
+    <meta name="author" content="Ruben Portugal" />
+    <meta name="author" content="Alvaro Rodriguez" />
+    <meta name="author" content="Miguel Hernanz" />
     <title>Listado</title>
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/layout.css" />
