@@ -5,7 +5,7 @@
         public static function registrar( $conexion, $campos ) {
             
             // Cogemos la contraseña para hacer el md5
-            // $campos['password'] = md5( $campos['password'] );
+            $campos['password'] = md5( $campos['password'] );
 
             // SQL para registrar el usuario en la BD
             $instruccion = 'INSERT INTO usuario 
@@ -31,7 +31,7 @@
         public static function comprobarUsuario( $conexion, $tipo, $campos ) {
 
             // Comprobamos si hay un usuario registrado con el DNI
-            // $campos['password'] = md5( $campos['password'] );
+            $campos['password'] = md5( $campos['password'] );
 
             // Comprobacion para registro
             if ( $tipo === 1 ) {
