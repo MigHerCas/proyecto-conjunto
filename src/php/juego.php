@@ -47,7 +47,7 @@
     <main>
         <div class="ficha">
             <div class="caratula">
-                <img src="../assets/imgs/videojuegos/N01.jpg" alt="Caratula juego" />
+                <img src="../assets/<?= $info[0]['id_img']?>" alt="Caratula juego" />
             </div>
 
             <div class="tecnica">
